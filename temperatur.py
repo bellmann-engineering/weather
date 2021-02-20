@@ -1,6 +1,5 @@
 # Beachte: der Sensor kann nur alle 2s abgefragt werden!
 
-import time
 import board
 import adafruit_dht
  
