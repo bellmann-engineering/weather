@@ -8,11 +8,19 @@ BLUE  = "\033[1;34m"
 YELLOW= "\033[0;33m" 
 RESET = "\033[0;0m"
 
-print ("Bitte geben Sie die Anzahl der duchzuführenden Messungen ein: ")
-count = int(input())
+try:
+    count = int(sys.argv[1])
+except:
+    print ("Bitte geben Sie die Anzahl der duchzuführenden Messungen ein: ")
+    count = int(input())
+
 print()
-print ("Bitte geben Sie den Schwellenwert für die Temperatur ein: ")
-limit = float(input())
+try:
+    limit = float(sys.argv[2])
+except:
+    print ("Bitte geben Sie den Schwellenwert für die Temperatur ein: ")
+    limit = float(input())
+
 print()
 
 dhtDevice = adafruit_dht.DHT22(board.D4)
@@ -22,10 +30,10 @@ max = 0
 print("Starte Messungen: ")
 
 i = 0
-while i <= count:
+while i < count:
     try:
         temperature_c = dhtDevice.temperature
-        print("Die aktuelle Temperatur ist: {:.1f} C".format(temperature_c)) #dht.humidity
+        print("Die aktuelle Temperatur ist: {:.1f} C".format(temperature_c)) 
         print("Die aktuelle Luftfeuchtigkeit ist: ", dhtDevice.humidity)
 
         if temperature_c > max:
@@ -38,7 +46,6 @@ while i <= count:
             sys.stdout.write(RED)
             print("Schwellenwert überschritten: " , max)
             sys.stdout.write(RESET)
-
         i += 1
     except RuntimeError as error:
         print(error.args[0])
@@ -48,13 +55,18 @@ while i <= count:
         dhtDevice.exit()
         raise error
     time.sleep(2.0)
+
 dhtDevice.exit()
 print()
+
 sys.stdout.write(BLUE)
 print("Die niedrigste Tagestemperatur: " , min)
+
 sys.stdout.write(YELLOW)
 print("Die höchste Tagestemperatur: " , max)
+
 print()
+
 sys.stdout.write(RESET)
 print("Ende Messung")
 print()
