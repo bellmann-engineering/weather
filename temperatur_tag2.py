@@ -44,7 +44,7 @@ while i < count:
 
         if temperature_c > limit:
             sys.stdout.write(RED)
-            print("Schwellenwert überschritten: " , max)
+            print("Schwellenwert überschritten: " , limit)
             sys.stdout.write(RESET)
         i += 1
     except RuntimeError as error:
