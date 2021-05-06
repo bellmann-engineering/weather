@@ -13,7 +13,7 @@ import time
 # Ein einfaches Fenster erstellen
 fenster = Tk()
 # Den Fenstertitle erstellen
-fenster.title("Hallo Golfsburg")
+fenster.title("Hallo Wolfsburg")
 
 #WetterIcon aus dem Web
 path = ("http://openweathermap.org/img/wn/02n@4x.png")
