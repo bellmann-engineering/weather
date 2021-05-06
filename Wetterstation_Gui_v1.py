@@ -1,6 +1,7 @@
 from tkinter import *
 
 #pip install Pillow
+#linux: sudo apt-get install python3-pil python3-pil.imagetk
 from PIL import ImageTk, Image
 
 #Bzgl. der Webbilder
