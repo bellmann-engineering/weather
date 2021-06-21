@@ -36,21 +36,21 @@ def construct_command(cmd, data=[]):
     ret = "\xaa\xb4" + chr(cmd)
     ret += ''.join(chr(x) for x in data)
     ret += "\xff\xff" + chr(checksum) + "\xab"
-
+    ret = bytes(ret, "utf-8") #fehler behoben
     return ret
 
 def process_data(d):
     r = struct.unpack('<HHxxBB', d[2:])
     pm25 = r[0]/10.0
     pm10 = r[1]/10.0
-    checksum = sum(ord(v) for v in d[2:8])%256
+    checksum = sum(v for v in d[2:8])%256
     return [pm25, pm10]
     
 def read_response():
     byte = 0
-    while byte != "\xaa":
+    while byte != b"\xaa":  #--while byte != b"\xaa":
         byte = ser.read(size=1)
-
+        
     d = ser.read(size=9)
 
     return byte + d
@@ -63,7 +63,7 @@ def cmd_query_data():
     ser.write(construct_command(CMD_QUERY_DATA))
     d = read_response()
     values = []
-    if d[1] == "\xc0":
+    if d[1] == ord("\xc0"): #---
         values = process_data(d)
     return values
 
@@ -77,15 +77,24 @@ def cmd_set_working_period(period):
     read_response()
 
 
+def getData():
+    #cmd_set_sleep(0)
+    #cmd_set_working_period(PERIOD_CONTINUOUS)
+    #cmd_set_mode(MODE_QUERY)
+    values = cmd_query_data()
+    if values is not None and len(values) == 2:
+        return values
+
+
 if __name__ == "__main__":
     cmd_set_sleep(0)
     cmd_set_working_period(PERIOD_CONTINUOUS)
-    cmd_set_mode(MODE_QUERY);
+    cmd_set_mode(MODE_QUERY)
     while True:
         cmd_set_sleep(0)
         for t in range(15):
-            values = cmd_query_data();
+            values = cmd_query_data()
             if values is not None and len(values) == 2:
-              print("PM2.5: ", values[0], ", PM10: ", values[1])
-              time.sleep(2)
+                print("PM2.5:", values[0], ", PM10:", values[1])
+                time.sleep(2)
 
