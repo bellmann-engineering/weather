@@ -1,16 +1,14 @@
 import time
-from Adafruit_IO import Client, Feed, RequestError # pip install adafruit-io
+from Adafruit_IO import Client # pip3 install adafruit-io
 
 ADAFRUIT_IO_USERNAME = 'kbellmann'
 ADAFRUIT_IO_KEY = ''
 
 io = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
-#feed = io.feeds('temperatur')
-
 feed = "temperatur"
 
-temp = "23"
+temp = "24"
 
 #io.send(feed, temp)
 
@@ -20,4 +18,3 @@ metadata = {'lat': 49.460983,
             'ele': 300,
             'created_at': None}
 io.send_data(feed, temp, metadata)
-
