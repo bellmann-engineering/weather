@@ -1,7 +1,7 @@
 from Adafruit_IO import Client # pip3 install adafruit-io
 
 ADAFRUIT_IO_USERNAME = 'kbellmann'
-ADAFRUIT_IO_KEY = 'aio_oBqP91rlunrtx5jXprpbpt0KLmbo'
+ADAFRUIT_IO_KEY = 'aio_oBqP91rlunrtx5jXprpbpt0KLmbo' # CHANGE IT!!!
 
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
