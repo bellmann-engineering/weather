@@ -8,13 +8,9 @@ aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 #feed = io.feeds('temperatur')
 
 feed = "temperatur"
-key = "temperatur"
 
 temp_c = "23"
 
-#io.send(feed, temp)
-
-tempfeed = aio.feeds(feed)
-aio.send_data(key, temp_c)
+aio.send_data(feed, temp_c)
 
 
