@@ -2,7 +2,7 @@ import requests # python -m pip install requests
 import time
 
 # pfad zum feed
-url = "https://io.adafruit.com/api/v2/kbellmann/feeds/temperatur"
+url = "https://io.adafruit.com/api/v2/kbellmann/feeds/temperatur/data"
 
 city = "Wolfsburg"
 token = "c417bfd432d32985a579e4363b63a49f"
