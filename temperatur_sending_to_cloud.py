@@ -5,8 +5,6 @@ ADAFRUIT_IO_KEY = 'aio_oBqP91rlunrtx5jXprpbpt0KLmbo' # CHANGE IT!!!
 
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
-#feed = io.feeds('temperatur')
-
 feed = "temperatur"
 
 temp_c = "23"
