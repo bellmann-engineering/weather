@@ -1,4 +1,4 @@
-import requests # python -m pip install requests
+import requests # pip3 install requests
 import time
 
 city = "Wolfsburg"
