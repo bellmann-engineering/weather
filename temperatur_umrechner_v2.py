@@ -13,19 +13,22 @@ def button_action():
     temperatur_str = eingabefeld.get()
     temperatur = float(temperatur_str)
     wahl = variable.get()
+    
     if wahl == u1:
-        message = temperatur_str + "° = " + str(Celsius_Kelvin(temperatur)) + "K"
+        message = f"{temperatur_str}° = {Celsius_Kelvin(temperatur):.2f}K"
     elif wahl == u2:
-        message = temperatur_str + "° = " + str(Celsius_Fahrenheit(temperatur)) + "F"
+        message = f"{temperatur_str}° = {Celsius_Fahrenheit(temperatur):.2f}F"
     elif wahl == u3:
-        message = temperatur_str + "K = " + str(Kelvin_Celsius(temperatur)) + "°"
+        message = f"{temperatur_str}K = {Kelvin_Celsius(temperatur):.2f}°"
     elif wahl == u4:
-        message = temperatur_str + "K = " + str(Kelvin_Fahrenheit(temperatur)) + "F"
-    elif wahl == u5: 
-        message = temperatur_str + "F = " + str(Fahrenheit_Celsius(temperatur)) + "°"
-    elif wahl == u6: 
-        message = "F = " + str(Fahrenheit_Kelvin(temperatur)) + "K"  
+        message = f"{temperatur_str}K = {Kelvin_Fahrenheit(temperatur):.2f}F"
+    elif wahl == u5:
+        message = f"{temperatur_str}F = {Fahrenheit_Celsius(temperatur):.2f}°"
+    elif wahl == u6:
+        message = f"{temperatur_str}F = {Fahrenheit_Kelvin(temperatur):.2f}K"
+    
     ausgabe.configure(text=message)
+
 
 def Celsius_Kelvin(t):
     if t >= ABSOLUTER_NP_C:
