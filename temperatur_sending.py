@@ -7,13 +7,9 @@ io = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 feed = "temperatur"
 
-temp = "24"
+temp_c = "24"
 
-#metadata = {'lat': 49.460983,
-#            'lon': 11.061859,
-#            'ele': 300,
-#            'created_at': None}
-# io.send_data(feed, temp, metadata)
 io.send_data(feed, temp_c)
+
 
 
