@@ -10,11 +10,10 @@ feed = "temperatur"
 
 temp = "24"
 
-#io.send(feed, temp)
+#metadata = {'lat': 49.460983,
+#            'lon': 11.061859,
+#            'ele': 300,
+#            'created_at': None}
+# io.send_data(feed, temp, metadata)
+io.send_data(feed, temp_c)
 
-
-metadata = {'lat': 49.460983,
-            'lon': 11.061859,
-            'ele': 300,
-            'created_at': None}
-io.send_data(feed, temp, metadata)
