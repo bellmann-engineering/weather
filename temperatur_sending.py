@@ -1,4 +1,3 @@
-import time
 from Adafruit_IO import Client # pip3 install adafruit-io
 
 ADAFRUIT_IO_USERNAME = 'kbellmann'
@@ -16,4 +15,5 @@ temp = "24"
 #            'created_at': None}
 # io.send_data(feed, temp, metadata)
 io.send_data(feed, temp_c)
+
 
