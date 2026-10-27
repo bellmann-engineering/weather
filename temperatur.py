@@ -7,4 +7,4 @@ import adafruit_dht
 dhtDevice = adafruit_dht.DHT22(board.D4, use_pulseio=False)
 
 temperature_c = dhtDevice.temperature
-print("Die aktuelle Temperatur ist: {:.1f} C".format(temperature_c))
+print(f"Die aktuelle Temperatur ist {temperatur_c:.1f} °C")
