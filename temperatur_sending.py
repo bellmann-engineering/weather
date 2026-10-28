@@ -1,4 +1,4 @@
-from Adafruit_IO import Client # pip3 install adafruit-io
+from Adafruit_IO import Client # pip3 install adafruit-io --break-system-packages
 
 ADAFRUIT_IO_USERNAME = 'kbellmann'
 ADAFRUIT_IO_KEY = ''
